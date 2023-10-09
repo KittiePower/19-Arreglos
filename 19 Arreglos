@@ -1,0 +1,71 @@
+/******************************************************************************
+19 Arreglos
+Nombre: Elisa Michelle Medina Vázquez 
+Fecha: 05102023
+*******************************************************************************/
+<?php
+//Llenar (leyendo de teclado) un arreglo con 10 números enteros
+$numbers = [];
+for ($i = 0; $i < 10; $i++) {
+    echo "Ingrese numero: ";
+    $number = readline();
+    $numbers[] = (int)$number;
+}
+//Sumar 2 unidades a los 5 primeros números
+for ($i = 0; $i < 5; $i++) {
+    $numbers[$i] += 2;
+}
+//Sumar 5 unidades a los 5 últimos números
+for ($i = 5; $i < 10; $i++) {
+    $numbers[$i] += 5;
+}
+//Sumar todos los resultados obtenidos
+$sum = array_sum($numbers);
+//Mostrar los resultados y el resultado de la suma
+echo "Numeros modificados: " . implode(", ", $numbers) . "\n";
+echo "Sum: $sum\n";
+//Generar 5 números aleatorios entre 1-10
+$numbers = [];
+for ($i = 0; $i < 5; $i++) {
+    $number = rand(1, 10);
+    $numbers[] = $number;
+}
+//Calcular el valor de la siguiente función: Y= X2 - 3X + 10.
+echo "Resultado funcion:\n";
+foreach ($numbers as $x) {
+    $y = ($x ** 2) - (3 * $x) + 10;
+    echo "X = $x, Y = $y\n";
+}
+//Declara los arrays
+$array1 = [];
+$array2 = [];
+$array3 = [];
+//Llenar array1 con valores capturados del teclado
+for ($i = 0; $i < 5; $i++) {
+    echo "Ingrese valor de array1: ";
+    $valor= readline();
+    $array1[] = $valor;
+}
+//Llenar array2 con el cuadrado del array1
+foreach ($array1 as $valor) {
+    $cuadrado = $valor** 2;
+    $array2[] = $cuadrado;
+}
+//Llenar array3 con numero aleatorios entre 1 y 100
+for ($i = 0; $i < 5; $i++) {
+    $random = rand(1, 100);
+    $array3[] = $random;
+}
+//Comparar los valores por índice e indicar cuál es el mayor, si es par o impar
+echo "Comparacion de valores:\n";
+for ($i = 0; $i < 5; $i++) {
+    $valor1 = $array1[$i];
+    $valor2 = $array2[$i];
+    $valor3 = $array3[$i];
+
+    $mayor = max($valor1, $valor2, $valor3);
+    $par = ($mayor% 2 === 0) ? "Par" : "Impar";
+
+    echo "Index $i: Mayor= $mayor, Par/Impar = $par\n";
+}
+?>
